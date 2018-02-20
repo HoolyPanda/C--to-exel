@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Reflection;
 using System.Runtime.InteropServices;
 using Excel = Microsoft.Office.Interop.Excel;
+using System.Diagnostics;
 
 
 
@@ -25,35 +26,37 @@ namespace ExelApp
             int row= 1;
             int column=1;
             int count = 0;
-             ExcelApp.workSheet.Cells[row, 3] =  "1";
-            while ((ExcelApp.workSheet.Cells[row,1].Text != info)&& (ExcelApp.workSheet.Cells[row, 1].Text == info)) {
+
+            //ExcelApp.workSheet.Cells[row, 3] =  "1";
+            while ((ExcelApp.workSheet.Cells[row,1].Text != info) && (ExcelApp.workSheet.Cells[row, 1].Text == info)) {
+
                 Console.WriteLine(row);
                 row++;
 
             }
-            if ((ExcelApp.workSheet.Cells[row, 1].Text== info))
+            if ((ExcelApp.workSheet.Cells[row, 1].Text == info))
             {
+                
                 count = Convert.ToInt32(ExcelApp.workSheet.Cells[row, 3].Text);
                 count++;
                 ExcelApp.workSheet.Cells[row, 3] = count;
             }
             else {
                 row++;
+                ExcelApp.workSheet.Cells[row, 3] = "1";
                 ExcelApp.workSheet.Cells[row, 1] = info;
                 // ExcelApp.workSheet.Cells[row, 3] =  "11";
+                ExcelApp.workBook.SaveAs("Книга1.xlsx");
                 // count = Convert.ToInt32 (ExcelApp.workSheet.Cells[row, 3].Text); 
-               // row++;
+                // row++;
 
                 Console.WriteLine(ExcelApp.workSheet.Cells[row, 3].Text);
-
-
-
             }
-            ExcelApp.excelApp.Visible = true;
-            ExcelApp.excelApp.UserControl = true;
+           
             Main(null);
-            ExcelApp.workBook.Close(true, "C:\\Price.xlsx");
-          //  ExcelApp.excelApp.Quit();
+
+
+
         }
         static void Count(int que,string answer) {
             if (Convert.ToString(ExcelApp.workSheet.Cells[2, 2]) == Convert.ToString(ExcelApp.workSheet.Cells[1, 1]) )
@@ -70,16 +73,64 @@ namespace ExelApp
         }
         public static void Main(string[] args)
         {
-           // ExcelApp.workSheet.Cells[2, 2] = "a" ;
-            
-            Console.WriteLine("Введите номер вопроса");
-            int que = Int32.Parse(Console.ReadLine());
-            Console.WriteLine("Какой ваш любимый Фрукт");
 
+            int count=1;
+            string bookS;
+            Console.WriteLine("введите команду");
             string info = Console.ReadLine();
-          //  ExcelApp.workSheet.Cells[1, 1] = info;
+            switch (info) {
+
+                case "опрос" :
+                    Console.WriteLine("введите номаер вопроса");
+                    int que = Int32.Parse(Console.ReadLine());
+                    Console.WriteLine("введите любимый фрукт");
+                    info = Console.ReadLine();
+                    Info(que, info);
+                    break;
+                case "начало" :
+                    Console.WriteLine("введите номер вопроса");
+                     que = Int32.Parse(Console.ReadLine());
+                    Console.WriteLine("введите любимый фрукт");
+                    info = Console.ReadLine();
+                    Info(que, info);
+                    break;
+                case "выход":
+                    count=1 ;
+                    bookS = "Книга" + count + ".xlsx";
+                    ExcelApp.workBook.SaveAs(bookS);
+                    ExcelApp.excelApp.Workbooks.Close();
+                    Marshal.ReleaseComObject(ExcelApp.workBook);
+                    ExcelApp.excelApp.Quit();
+                    Process[] List;
+                    List = Process.GetProcessesByName("EXCEL");
+                    foreach (Process proc in List)
+                    {
+                        proc.Kill();
+                    }
+                    GC.Collect();
+                    break;
+                case "конец":
+                    
+                    count = 1;
+                    bookS = "Книга" + count + ".xlsx";
+                    ExcelApp.workBook.Close(true);
+                    ExcelApp.excelApp.Quit();
+                    GC.Collect();
+                    break;
+                case "результат":
+                    ExcelApp.excelApp.Visible = true;
+                    ExcelApp.excelApp.UserControl = true;
+                    Main(null);
+                    break;
+                default:
+                    Console.WriteLine("неверная команда");
+                    Main(null);
+                    break;
+
+
+            }
+        
           
-            Info(que,info);
         }
     }
 }
