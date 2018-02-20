@@ -1,0 +1,14 @@
+C:\Users\Pavlo\source\repos\ExelApp\ExelApp\bin\Debug\ExelApp.exe.config
+C:\Users\Pavlo\source\repos\ExelApp\ExelApp\bin\Debug\ExelApp.exe
+C:\Users\Pavlo\source\repos\ExelApp\ExelApp\bin\Debug\ExelApp.pdb
+C:\Users\Pavlo\source\repos\ExelApp\ExelApp\obj\Debug\ExelApp.csprojResolveAssemblyReference.cache
+C:\Users\Pavlo\source\repos\ExelApp\ExelApp\obj\Debug\ExelApp.csproj.CoreCompileInputs.cache
+C:\Users\Pavlo\source\repos\ExelApp\ExelApp\obj\Debug\ExelApp.exe
+C:\Users\Pavlo\source\repos\ExelApp\ExelApp\obj\Debug\ExelApp.pdb
+C:\Users\Pavlo\source\repos\ExelApp\C--to-exel\ExelApp\bin\Debug\ExelApp.exe.config
+C:\Users\Pavlo\source\repos\ExelApp\C--to-exel\ExelApp\bin\Debug\ExelApp.exe
+C:\Users\Pavlo\source\repos\ExelApp\C--to-exel\ExelApp\bin\Debug\ExelApp.pdb
+C:\Users\Pavlo\source\repos\ExelApp\C--to-exel\ExelApp\obj\Debug\ExelApp.csprojResolveAssemblyReference.cache
+C:\Users\Pavlo\source\repos\ExelApp\C--to-exel\ExelApp\obj\Debug\ExelApp.csproj.CoreCompileInputs.cache
+C:\Users\Pavlo\source\repos\ExelApp\C--to-exel\ExelApp\obj\Debug\ExelApp.exe
+C:\Users\Pavlo\source\repos\ExelApp\C--to-exel\ExelApp\obj\Debug\ExelApp.pdb
