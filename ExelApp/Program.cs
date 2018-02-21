@@ -124,6 +124,10 @@ namespace ExelApp
                     break;
                 default:
                     Console.WriteLine("неверная команда");
+                    Console.WriteLine("начало или опрос- начало работы");
+                    Console.WriteLine("результат - выводит текущую таблицу");
+                    Console.WriteLine("выход или конец - сохраниет таблицу в папке с докупентами и выходит");
+                    Console.WriteLine("в случае вылета почистить диспетчер задач от процессов экселя");
                     Main(null);
                     break;
 

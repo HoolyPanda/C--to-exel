@@ -1,0 +1,6 @@
+C:\Users\Pavlo\source\repos\ExelApp\C--to-exel\ExelApp\bin\Release\ExelApp.exe.config
+C:\Users\Pavlo\source\repos\ExelApp\C--to-exel\ExelApp\bin\Release\ExelApp.exe
+C:\Users\Pavlo\source\repos\ExelApp\C--to-exel\ExelApp\bin\Release\ExelApp.pdb
+C:\Users\Pavlo\source\repos\ExelApp\C--to-exel\ExelApp\obj\Release\ExelApp.csproj.CoreCompileInputs.cache
+C:\Users\Pavlo\source\repos\ExelApp\C--to-exel\ExelApp\obj\Release\ExelApp.exe
+C:\Users\Pavlo\source\repos\ExelApp\C--to-exel\ExelApp\obj\Release\ExelApp.pdb
