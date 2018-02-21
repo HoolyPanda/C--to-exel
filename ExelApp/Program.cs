@@ -28,7 +28,7 @@ namespace ExelApp
             int count = 0;
 
             //ExcelApp.workSheet.Cells[row, 3] =  "1";
-            while ((ExcelApp.workSheet.Cells[row,1].Text != info) && (ExcelApp.workSheet.Cells[row, 1].Text == info)) {
+            while ((ExcelApp.workSheet.Cells[row,1].Text != info) & (ExcelApp.workSheet.Cells[row, 1].Text != "")) {
 
                 Console.WriteLine(row);
                 row++;
@@ -37,20 +37,20 @@ namespace ExelApp
             if ((ExcelApp.workSheet.Cells[row, 1].Text == info))
             {
                 
-                count = Convert.ToInt32(ExcelApp.workSheet.Cells[row, 3].Text);
+                count = Convert.ToInt32(ExcelApp.workSheet.Cells[row, 2].Text);
                 count++;
-                ExcelApp.workSheet.Cells[row, 3] = count;
+                ExcelApp.workSheet.Cells[row, 2] = count;
             }
             else {
-                row++;
-                ExcelApp.workSheet.Cells[row, 3] = "1";
+               // row++;
+                ExcelApp.workSheet.Cells[row, 2] = "1";
                 ExcelApp.workSheet.Cells[row, 1] = info;
                 // ExcelApp.workSheet.Cells[row, 3] =  "11";
-                ExcelApp.workBook.SaveAs("Книга1.xlsx");
+                //ExcelApp.workBook.SaveAs("Книга1.xlsx");
                 // count = Convert.ToInt32 (ExcelApp.workSheet.Cells[row, 3].Text); 
                 // row++;
 
-                Console.WriteLine(ExcelApp.workSheet.Cells[row, 3].Text);
+                Console.WriteLine(ExcelApp.workSheet.Cells[row, 2].Text);
             }
            
             Main(null);
@@ -82,14 +82,14 @@ namespace ExelApp
 
                 case "опрос" :
                     Console.WriteLine("введите номаер вопроса");
-                    int que = Int32.Parse(Console.ReadLine());
+                    int que = 1;//Int32.Parse(Console.ReadLine());
                     Console.WriteLine("введите любимый фрукт");
                     info = Console.ReadLine();
                     Info(que, info);
                     break;
                 case "начало" :
                     Console.WriteLine("введите номер вопроса");
-                     que = Int32.Parse(Console.ReadLine());
+                     que = 1;//Int32.Parse(Console.ReadLine());
                     Console.WriteLine("введите любимый фрукт");
                     info = Console.ReadLine();
                     Info(que, info);
