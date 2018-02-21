@@ -81,14 +81,14 @@ namespace ExelApp
             switch (info) {
 
                 case "опрос" :
-                    Console.WriteLine("введите номаер вопроса");
+                  //  Console.WriteLine("введите номаер вопроса");
                     int que = 1;//Int32.Parse(Console.ReadLine());
                     Console.WriteLine("введите любимый фрукт");
                     info = Console.ReadLine();
                     Info(que, info);
                     break;
                 case "начало" :
-                    Console.WriteLine("введите номер вопроса");
+                 //   Console.WriteLine("введите номер вопроса");
                      que = 1;//Int32.Parse(Console.ReadLine());
                     Console.WriteLine("введите любимый фрукт");
                     info = Console.ReadLine();
@@ -119,7 +119,7 @@ namespace ExelApp
                     break;
                 case "результат":
                     ExcelApp.excelApp.Visible = true;
-                    ExcelApp.excelApp.UserControl = true;
+                    ExcelApp.excelApp.UserControl = false;
                     Main(null);
                     break;
                 default:
