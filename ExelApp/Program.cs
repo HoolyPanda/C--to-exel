@@ -26,42 +26,47 @@ namespace ExelApp
             int row= 1;
             int column=1;
             int count = 0;
+            string obr;
+            while ((String.Compare(obr = ExcelApp.workSheet.Cells[row, 1].Text, info, true) != 0) & (ExcelApp.workSheet.Cells[row, 1].Text != "")) {
 
-            //ExcelApp.workSheet.Cells[row, 3] =  "1";
-            while ((ExcelApp.workSheet.Cells[row,1].Text != info) & (ExcelApp.workSheet.Cells[row, 1].Text != "")) {
-
-               // Console.WriteLine(row);
                 row++;
-
             }
-            if ((ExcelApp.workSheet.Cells[row, 1].Text == info))
+            Console.WriteLine(ExcelApp.workSheet.Cells[row, 1].Text);
+            Console.WriteLine(row);
+            if (String.Compare(obr = ExcelApp.workSheet.Cells[row, 1].Text, info, true) == 0)
             {
-                
                 count = Convert.ToInt32(ExcelApp.workSheet.Cells[row, 2].Text);
                 count++;
                 ExcelApp.workSheet.Cells[row, 2] = count;
             }
-            else {
-               // row++;
+            else
+            {
+                //Console.WriteLine(String.Compare(ExcelApp.workSheet.Cells[row, 1].Text, info, false));
                 ExcelApp.workSheet.Cells[row, 2] = "1";
                 ExcelApp.workSheet.Cells[row, 1] = info;
-                // ExcelApp.workSheet.Cells[row, 3] =  "11";
-                //ExcelApp.workBook.SaveAs("Книга1.xlsx");
-                // count = Convert.ToInt32 (ExcelApp.workSheet.Cells[row, 3].Text); 
-                // row++;
-
                 Console.WriteLine("Добавлен новый элемент");
+                
             }
 
-            Count(row, info);
-    
             Main(null);
-
-
-
         }
         static void Count(int row,string info) {
-           //Строковые ф-ии изучить для сравнения 
+            //Строковые ф-ии изучить для сравнения
+           
+            Console.WriteLine("Сравниваем со словом яблоко");
+            string obr = "яблоко";
+            string slovo = Console.ReadLine();
+            
+           
+            if (String.Compare(obr, slovo, true) == 0)
+            {
+                Console.WriteLine("Это яблоко");
+            }
+            else {
+                Console.WriteLine("Это не яблоко");
+            }
+
+            Main(null);
 
         }
         public static void Main(string[] args)
@@ -86,6 +91,9 @@ namespace ExelApp
                     Console.WriteLine("введите любимый фрукт");
                     info = Console.ReadLine();
                     Info(que, info);
+                    break;
+                case "проверка":
+                    Count(1,"1");
                     break;
                 case "выход":
                     count=1 ;
