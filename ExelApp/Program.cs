@@ -30,7 +30,7 @@ namespace ExelApp
             //ExcelApp.workSheet.Cells[row, 3] =  "1";
             while ((ExcelApp.workSheet.Cells[row,1].Text != info) & (ExcelApp.workSheet.Cells[row, 1].Text != "")) {
 
-                Console.WriteLine(row);
+               // Console.WriteLine(row);
                 row++;
 
             }
@@ -50,26 +50,19 @@ namespace ExelApp
                 // count = Convert.ToInt32 (ExcelApp.workSheet.Cells[row, 3].Text); 
                 // row++;
 
-                Console.WriteLine(ExcelApp.workSheet.Cells[row, 2].Text);
+                Console.WriteLine("Добавлен новый элемент");
             }
-           
+
+            Count(row, info);
+    
             Main(null);
 
 
 
         }
-        static void Count(int que,string answer) {
-            if (Convert.ToString(ExcelApp.workSheet.Cells[2, 2]) == Convert.ToString(ExcelApp.workSheet.Cells[1, 1]) )
-            {
-                Console.WriteLine("OK");
-                System.Threading.Thread.Sleep(2500);
-            }
-            else {
-                Console.WriteLine("NO");
-                System.Threading.Thread.Sleep(2500);
-                ExcelApp.workSheet.Cells[3, 3] = ExcelApp.workSheet.Cells[2, 2];
-            }
-            ExcelApp.excelApp.Visible = true;
+        static void Count(int row,string info) {
+           //Строковые ф-ии изучить для сравнения 
+
         }
         public static void Main(string[] args)
         {
