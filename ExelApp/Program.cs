@@ -72,32 +72,40 @@ namespace ExelApp
         }
         public static void Main(string[] args)
         {
-
-            int count=1;
+            try { 
+            int count = 1;
             string bookS;
             Console.WriteLine("введите команду");
             string info = Console.ReadLine();
             switch (info) {
 
-                case "опрос" :
+                case "опрос":
                     Console.WriteLine("введите номаер вопроса");
                     int que = Int32.Parse(Console.ReadLine());
                     Console.WriteLine("введите любимый фрукт");
                     info = Console.ReadLine();
                     Info(que, info);
                     break;
-                case "начало" :
+                case "начало":
                     Console.WriteLine("введите номаер вопроса");
-                    int que = Int32.Parse(Console.ReadLine());
+
+                    try { que = Convert.ToInt32(Console.ReadLine()); }
+                    catch {
+                        Console.WriteLine("error");
+                        Main(null);
+                        break;
+
+                    }
+                    //que = Convert.ToInt32(Console.ReadLine());
                     Console.WriteLine("введите любимый фрукт");
                     info = Console.ReadLine();
                     Info(que, info);
                     break;
                 case "проверка":
-                    Count(1,"1");
+                    Count(1, "1");
                     break;
                 case "выход":
-                    count=1 ;
+                    count = 1;
                     bookS = "Книга" + count + ".xlsx";
                     ExcelApp.workBook.SaveAs(bookS);
                     ExcelApp.excelApp.Workbooks.Close();
@@ -112,7 +120,7 @@ namespace ExelApp
                     GC.Collect();
                     break;
                 case "конец":
-                    
+
                     count = 1;
                     bookS = "Книга" + count + ".xlsx";
                     ExcelApp.workBook.Close(true);
@@ -135,7 +143,11 @@ namespace ExelApp
 
 
             }
-        
+        }
+        catch {
+                Console.WriteLine("Что-то пошло не так, если при выходе вы не сохранили книгу, то сделайте это");
+                Main(null);
+            }
           
         }
     }
