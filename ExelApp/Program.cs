@@ -17,7 +17,7 @@ namespace ExelApp
     class Program
     {
         public class ExcelApp {
-            public static Excel.Application excelApp = new Excel.Application();
+            public static Excel.Application excelApp = new Excel.Application(); 
             public static Excel.Workbook workBook =  excelApp.Workbooks.Add();
             public static Excel.Worksheet workSheet = (Excel.Worksheet) workBook.Worksheets.get_Item(1);
            
@@ -88,15 +88,13 @@ namespace ExelApp
                     break;
                 case "начало":
                     Console.WriteLine("введите номаер вопроса");
-
-                    try { que = Convert.ToInt32(Console.ReadLine()); }
-                    catch {
-                        Console.WriteLine("error");
-                        Main(null);
-                        break;
-
-                    }
-                    //que = Convert.ToInt32(Console.ReadLine());
+                        try { que = Convert.ToInt32(Console.ReadLine()); }
+                       
+                          catch {
+                            Console.WriteLine("error");
+                            Main(null);
+                            break;
+                              }
                     Console.WriteLine("введите любимый фрукт");
                     info = Console.ReadLine();
                     Info(que, info);
@@ -120,7 +118,6 @@ namespace ExelApp
                     GC.Collect();
                     break;
                 case "конец":
-
                     count = 1;
                     bookS = "Книга" + count + ".xlsx";
                     ExcelApp.workBook.Close(true);
@@ -142,11 +139,26 @@ namespace ExelApp
                     break;
 
 
-            }
-        }
-        catch {
+                            }
+                 }
+
+            catch {
                 Console.WriteLine("Что-то пошло не так, если при выходе вы не сохранили книгу, то сделайте это");
-                Main(null);
+                int count = 1;
+                string bookS;
+                count = 1;
+                bookS = "Книга" + count + ".xlsx";
+                ExcelApp.workBook.SaveAs(bookS);
+                ExcelApp.excelApp.Workbooks.Close();
+                Marshal.ReleaseComObject(ExcelApp.workBook);
+                ExcelApp.excelApp.Quit();
+                Process[] List;
+                List = Process.GetProcessesByName("EXCEL");
+                foreach (Process proc in List)
+                {
+                    proc.Kill();
+                }
+                GC.Collect();
             }
           
         }
